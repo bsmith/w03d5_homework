@@ -1,0 +1,17 @@
+{% extends "base.html.j2" %}
+{% block title %}{{ book.title }} — The CodeClan Library{% endblock %}
+{% block subheader %}
+<h2>Book details</h2>
+<p>Back to <a href="{{ url_for('books.books_list') }}">all books</a></p>
+{% endblock %}
+{% block content %}
+<div class="book single">
+    <h3 class="title">{{ book.title }}</h3>
+    <h4 class="author">{{ book.author }}</h4>
+    <p class="genre">{{ book.genre }}</p>
+    <form class="delete" action="{{ url_for('books.books_delete', index=index) }}"
+            method="POST">
+        <button type="submit">&#x1F5D1;&#xFE0F; Delete Book</button>
+    </form>
+</div>
+{% endblock %}
