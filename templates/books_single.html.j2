@@ -5,17 +5,19 @@
 <h2>Book details</h2>
 {% endblock %}
 {% block content %}
-<div class="book single">
-    <h3 class="title">{{ book.title }}</h3>
-    <h4 class="author">{{ book.author }}</h4>
-    <p class="genre">{{ book.genre }}</p>
-    {% if book.checked_out %}
-    <p class="checked-out">checked out</p>
-    {% endif %}
-    <div class="actions">
-        {{ macros.checkoutin_button(book, index) }}
-        {{ macros.delete_button(book, index) }}
-        <p>Back to <a href="{{ url_for('books.books_list') }}">all books</a></p>
+<main>
+    <div class="book single">
+        <h3 class="title">{{ book.title }}</h3>
+        <h4 class="author">{{ book.author }}</h4>
+        <p class="genre">{{ book.genre }}</p>
+        {% if book.checked_out %}
+        <p class="checked-out">checked out</p>
+        {% endif %}
+        <div class="actions">
+            {{ macros.checkoutin_button(book, index) }}
+            {{ macros.delete_button(book, index) }}
+            <p>Back to <a href="{{ url_for('books.books_list') }}">all books</a></p>
+        </div>
     </div>
-</div>
+</main>
 {% endblock %}
