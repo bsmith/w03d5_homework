@@ -1,4 +1,5 @@
 {% extends "base.html.j2" %}
+{% import "macros.html.j2" as macros %}
 {% block content %}
 
 <main>
@@ -11,6 +12,10 @@
             </span>
             by <span class="author">{{ book.author }}</span> —
             <span class="genre">{{ book.genre }}</span>
+            {% if book.checked_out %}
+            <span class="checked-out">checked out</span>
+            {% endif %}
+            {{ macros.checkoutin_button(book, loop.index0, "inline") }}
         </li>
     {% endfor %}
     </ul>

@@ -37,3 +37,20 @@ def books_create():
 def books_delete(index: int):
     delete_book(library[index])
     return redirect(url_for('books.books_list'))
+
+@books.route('/books/<int:index>/checkoutin', methods=['POST'])
+def books_checkoutin(index: int):
+    if request.form['direction'] == "in":
+        library[index].check_in()
+    elif request.form['direction'] == "out":
+        library[index].check_out()
+    else:
+        raise ValueError("unknown direction")
+    print(request.form['next_page'])
+    # if ('next_page' in request.form and
+    #         request.form['next_page'] in ['books.books_list', 'books.books_single']):
+    #     return redirect(url_for(request.form['next_page'], index=index))
+    if 'next_page' in request.form and request.form['next_page'] == 'books.books_single':
+        return redirect(url_for('books.books_single', index=index))
+    else:
+        return redirect(url_for('books.books_list'))

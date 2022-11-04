@@ -25,25 +25,27 @@
 //////// // /////   ///     //////// ///     //      
 ```
 
-# MVP
+# ✓ MVP
 
 * ✓ `Book` has title, author, genre.
 * ✓ Sample data for mock `Library`.
-* Routes:
+* ✓ Routes:
     1. ✓ list all Books
     2. ✓ show an individual Book
-    3. add a new Book to the Library (`POST` route)
+    3. ✓ add a new Book to the Library (`POST` route)
     4. ✓ remove a Book from the Library (`POST` route)
 * ✓ `base.html` skeleton
 * ✓ Styling placeholder with just font
+* Tests for Book/Library
 
 # Extensions
 
-* 'Checked out' _display only_
-    * `checked_out` property on Books
-    * 'checked out' status on lists and single book pages
+* ✓ 'Checked out' _display only_
+    * ✓ `checked_out` property on Books
+    * ✓ 'checked out' status on lists and single book pages
 * Style everything with CSS
-* `POST` route to update `checked_out`
+* ✓ `POST` route to update `checked_out`
+    * fiddly!
 
 # More extensions?
 
@@ -62,3 +64,5 @@
     * stick a `database_id` attribute on books, `None` by default, and set it
       when added or deleted
 * When deleting books, ask 'Are you sure?'
+* Try taking some screenshots/video
+* Refresh README
