@@ -61,7 +61,7 @@
     * Filter to books not checked out
 * Pagination?
 * Library should be an object!
-* Genre selection should be a drop-down list
+* ✓ Genre selection should be a drop-down list
 * Find out what a 'CSS Reset' would do/be useful for.  Removing annoying margins?
 * As you delete books, the book referred to by each index changes!
     * eg /books/1 — delete book 1 — then /books/1 refers to what was /books/2
