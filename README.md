@@ -36,16 +36,20 @@
     4. ✓ remove a Book from the Library (`POST` route)
 * ✓ `base.html` skeleton
 * ✓ Styling placeholder with just font
-* Tests for Book/Library
+* ✓ Tests for Book/Library
 
-# Extensions
+# ✓ Code Extensions
 
 * ✓ 'Checked out' _display only_
     * ✓ `checked_out` property on Books
     * ✓ 'checked out' status on lists and single book pages
-* Style everything with CSS
 * ✓ `POST` route to update `checked_out`
     * fiddly!
+
+# CSS Extensions
+
+* Style everything with CSS
+* ✓ Icons/emoji on all buttons
 
 # More extensions?
 
@@ -66,3 +70,4 @@
 * When deleting books, ask 'Are you sure?'
 * Try taking some screenshots/video
 * Refresh README
+* Accessibility?

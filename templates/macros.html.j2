@@ -4,11 +4,11 @@
     {% if book.checked_out %}
     <input type="hidden" name="direction" value="in">
     <input type="hidden" name="next_page" value="{{ request.url_rule.endpoint }}">
-    <button type="submit">ICON Check back in</button>
+    <button type="submit">📕 Check back in</button>
     {% else %}
     <input type="hidden" name="direction" value="out">
     <input type="hidden" name="next_page" value="{{ request.url_rule.endpoint }}">
-    <button type="submit">ICON Check out</button>
+    <button type="submit">&#x1F4D6; Check out</button>
     {% endif %}
 </form>
 {% endmacro %}
