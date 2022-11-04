@@ -17,3 +17,13 @@ class TestBook(TestCase):
 
     def test_book_is_checked_in_by_default(self):
         self.assertFalse(self.book.checked_out)
+
+    def test_check_out(self):
+        self.book.check_out()
+        self.assertTrue(self.book.checked_out)
+
+    def test_check_in(self):
+        self.book.check_out()
+        self.assertTrue(self.book.checked_out)
+        self.book.check_in()
+        self.assertFalse(self.book.checked_out)
