@@ -49,7 +49,14 @@
 # CSS Extensions
 
 * Style everything with CSS
+* Mobile design
 * ✓ Icons/emoji on all buttons
+
+# Design
+
+Don't need class/object diagrams for this system.
+
+* Read UX design slides
 
 # More extensions?
 
@@ -71,3 +78,7 @@
 * Try taking some screenshots/video
 * Refresh README
 * Accessibility?
+
+# User Persona
+
+![persona1.png](persona1.png)
