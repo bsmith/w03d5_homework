@@ -21,3 +21,8 @@ class TestLibrary(unittest.TestCase):
         book = library.get_all_books()[3]
         library.delete_book(book)
         self.assertNotIn(book, library.get_all_books())
+
+    def test_find_book_by_accession_id(self):
+        book = library.get_all_books()[3]
+        book2 = library.find_book_by_accession_id(book.get_accession_id())
+        self.assertIs(book, book2)

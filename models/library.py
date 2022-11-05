@@ -19,6 +19,12 @@ class Library():
         self.books.remove(book)
         book.remove_accession_id()
 
+    def find_book_by_accession_id(self, accession_id: int):
+        for book in self.books:
+            if book.get_accession_id() == accession_id:
+                return book
+        return
+
     def count_books(self):
         return len(self.books)
 
