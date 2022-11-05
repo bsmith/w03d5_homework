@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        /* .persona > table { outline: 1px solid red }
+        table td { outline: 1px solid green }
+        table th { outline: 1px solid blue } */
+
+        body {
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        }
+
+        .persona {
+            width: max(min(40rem, 100%), 25rem);
+        }
+
+        .persona img {
+            height: 100%;
+        }
+
+        .persona > table {
+            table-layout: fixed;
+            /* width: 100%; */
+            border-collapse: collapse;
+            border: 3px solid black;
+        }
+
+        .persona > table col.short {
+            width: 25%;
+        }
+
+        /* .persona > table > colgroup > col.long {
+            width: 50%;
+        } */
+
+        .persona > table th {
+            padding: 8px;
+            border: 1px solid black;
+        }
+        
+        .persona > table td {
+            padding: 8px;
+            height: 4.5rem;
+            border: 1px solid black;
+            vertical-align: top;
+        }
+
+        /* .persona > table td.square {
+            aspect-ratio: 1;
+            height: auto;
+        } */
+
+</style>
+</head>
+<body>
+    <h1>User persona for The CodeClan Library</h1>
+
+    <aside>
+        <h2>Styling tables</h2>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Styling_tables">MDN Styling tables</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/width#examples">MDN CSS: width</a></li>
+            <li><a href="https://www.w3.org/TR/CSS21/tables.html#columns">CSS 2.1: Columns</a></li>
+        </ul>
+    </aside>
+
+    <article class="persona">
+        <h2>User Persona #1</h2>
+        <table>
+            <caption>User Persona #1</caption>
+            <colgroup>
+                <col class="short">
+                <col class="short">
+                <col class="long">
+            </colgroup>
+            <tr>
+                <th>Face</th>
+                <th>Name</th>
+                <th>Values &amp; Behaviours</th>
+            </tr>
+            <tr>
+                <td class="square"><img src="librarian1.jpg" title="generated with craiyon.com"></td>
+                <td>Lizzy the Librarian</td>
+                <td>(WHAT DO THEY DO NOW & WHY)<br>
+                    Important to stamp all books with return date<br>
+                    Double-check before disposing of books<br>
+                    All books must be catalogued
+                </td>
+            </tr>
+            <tr>
+                <th colspan=2>Demographics &amp; Characteristics</th>
+                <th>Needs &amp; Goals</th>
+            </tr>
+            <tr>
+                <td colspan=2 rowspan=3>(WHO ARE THEY)<br>
+                    Passionate about books<br>
+                    Has extensive personal collection of books<br>
+                    Uses mobile device rather than a computer at home
+                </td>
+                <td>(WHAT WOULD THEY WANT &amp; WHY)<br>
+                    Need to find books easily<br>
+                    Accurate record keeping
+                </td>
+            </tr>
+            <tr>
+                <th>Pain Points</th>
+            </tr>
+            <tr>
+                <td>(WHAT IN ABOVE ANNOYS THEM)<br>
+                    The drawers on the card file keep sticking<br>
+                    Stamp ink keeps getting on fingers<br>
+                    Desktop computer is too far away from stacks
+                </td>
+            </tr>
+        </table>
+    </article>
+</body>
+</html>
