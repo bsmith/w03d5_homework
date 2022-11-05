@@ -1,5 +1,5 @@
 import unittest
-import models.library as library
+from models.library import library
 from models.book import Book
 
 class TestLibrary(unittest.TestCase):
@@ -7,13 +7,17 @@ class TestLibrary(unittest.TestCase):
         self.book = Book("The Platform Edge", "Mike Ashley", "fiction")
 
     def test_library_has_demo_data(self):
-        self.assertTrue(len(library.library) > 3)
+        self.assertTrue(library.count_books() > 3)
+
+    def test_library_get_all_books_returns_list(self):
+        all_books = library.get_all_books()
+        self.assertIsInstance(all_books, list)
 
     def test_add_new_book(self):
         library.add_new_book(self.book)
-        self.assertIn(self.book, library.library)
+        self.assertIn(self.book, library.get_all_books())
 
     def test_delete_book(self):
-        book = library.library[3]
+        book = library.get_all_books()[3]
         library.delete_book(book)
-        self.assertNotIn(book, library.library)
+        self.assertNotIn(book, library.get_all_books())

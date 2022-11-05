@@ -27,3 +27,16 @@ class TestBook(TestCase):
         self.assertTrue(self.book.checked_out)
         self.book.check_in()
         self.assertFalse(self.book.checked_out)
+
+    def test_get_accession_id_none_by_default(self):
+        self.assertIsNone(self.book.get_accession_id())
+
+    def test_update_accession_id(self):
+        self.book.update_accession_id(123)
+        self.assertEqual(123, self.book.get_accession_id())
+    
+    def test_remove_accession_id(self):
+        self.book.update_accession_id(123)
+        self.assertEqual(123, self.book.get_accession_id())
+        self.book.remove_accession_id()
+        self.assertIsNone(self.book.get_accession_id())

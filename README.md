@@ -56,7 +56,11 @@
 
 Don't need class/object diagrams for this system.
 
-* Read UX design slides
+* ✓ Read UX design slides
+
+## User Persona
+
+![persona1.png](persona1.png)
 
 # More extensions?
 
@@ -78,7 +82,3 @@ Don't need class/object diagrams for this system.
 * Try taking some screenshots/video
 * Refresh README
 * Accessibility?
-
-# User Persona
-
-![persona1.png](persona1.png)
