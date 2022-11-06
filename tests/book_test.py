@@ -40,3 +40,10 @@ class TestBook(TestCase):
         self.assertEqual(123, self.book.get_accession_id())
         self.book.remove_accession_id()
         self.assertIsNone(self.book.get_accession_id())
+
+    def test_get_author_sortkey(self):
+        self.assertEqual('Ashley, Mike', self.book.get_author_sortkey())
+
+    def test_get_author_sortkey__complexname(self):
+        self.book.author = 'Mike A.  B. C.     Ashley'
+        self.assertEqual('Ashley, Mike A. B. C.', self.book.get_author_sortkey())
