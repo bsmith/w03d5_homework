@@ -50,7 +50,7 @@ def books_create():
     new_book = Book(**book_data)
     library.add_new_book(new_book)
     new_accession_id = new_book.accession_id
-    return redirect(url_for('books.books_single', accession_id = new_accession_id))
+    return redirect(url_for('.books_single', accession_id = new_accession_id))
 
 @books.route('/books/<int:accession_id>/delete', methods=['POST'])
 def books_delete(accession_id: int):
@@ -58,7 +58,7 @@ def books_delete(accession_id: int):
     if book is None:
         raise ValueError("accession_id not found")
     library.delete_book(book)
-    return redirect(url_for('books.books_list'))
+    return redirect(url_for('.books_list'))
 
 @books.route('/books/<int:accession_id>/checkoutin', methods=['POST'])
 def books_checkoutin(accession_id: int):
@@ -76,6 +76,6 @@ def books_checkoutin(accession_id: int):
     #         request.form['next_page'] in ['books.books_list', 'books.books_single']):
     #     return redirect(url_for(request.form['next_page'], index=index))
     if 'next_page' in request.form and request.form['next_page'] == 'books.books_single':
-        return redirect(url_for('books.books_single', accession_id=accession_id))
+        return redirect(url_for('.books_single', accession_id=accession_id))
     else:
-        return redirect(url_for('books.books_list'))
+        return redirect(url_for('.books_list'))

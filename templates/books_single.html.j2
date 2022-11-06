@@ -16,7 +16,7 @@
         <div class="actions">
             {{ macros.checkoutin_button(book, index) }}
             {{ macros.delete_button(book, index) }}
-            <p>Back to <a href="{{ url_for('books.books_list') }}">all books</a></p>
+            <p>Back to <a href="{{ url_for('.books_list') }}">all books</a></p>
         </div>
     </div>
 </main>

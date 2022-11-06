@@ -5,9 +5,9 @@
 <main>
 
     <p>Sort by:
-        <a href="{{ url_for('books.books_list', sort_type='title') }}">title</a>,
-        <a href="{{ url_for('books.books_list', sort_type='author') }}">author</a>,
-        <a href="{{ url_for('books.books_list', sort_type='accession_id') }}">accession</a>
+        <a href="{{ url_for('.books_list', sort_type='title') }}">title</a>,
+        <a href="{{ url_for('.books_list', sort_type='author') }}">author</a>,
+        <a href="{{ url_for('.books_list', sort_type='accession_id') }}">accession</a>
     </p>
 
     <ul class="bookslist">
@@ -15,7 +15,7 @@
         <li class="book">
             <span class="details">
                 <span class="title">
-                    <a href="{{ url_for('books.books_single', accession_id=book.accession_id) }}">{{ book.title }}</a>
+                    <a href="{{ url_for('.books_single', accession_id=book.accession_id) }}">{{ book.title }}</a>
                 </span>
                 by <span class="author">{{ book.author }}</span><br>
                 — <span class="genre">{{ book.genre }}</span>
@@ -30,7 +30,7 @@
     {% endfor %}
     </ul>
 
-    <form class="create" action="{{ url_for('books.books_create') }}"
+    <form class="create" action="{{ url_for('.books_create') }}"
             method="POST">
         <h3>Create book</h3>
         <div>
