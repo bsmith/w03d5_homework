@@ -10,10 +10,14 @@ class Library():
         self.name = name
         self.books = []
     
-    def add_new_book(self, book: Book):
-        if book.accession_id is None:
-            self.books.append(book)
-            book.update_accession_id(len(self.books) - 1)
+    def add_new_book(self, new_book: Book):
+        if new_book.accession_id is None:
+            if len(self.books) == 0:
+                new_accession_id = 100
+            else:
+                new_accession_id = 1 + max([book.accession_id for book in self.books])
+            new_book.update_accession_id(new_accession_id)
+            self.books.append(new_book)
 
     def delete_book(self, book: Book):
         self.books.remove(book)

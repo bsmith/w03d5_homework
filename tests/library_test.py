@@ -17,6 +17,14 @@ class TestLibrary(unittest.TestCase):
         library.add_new_book(self.book)
         self.assertIn(self.book, library.get_all_books())
 
+    def test_add_new_book__allocates_correct_accession_id(self):
+        all_accession_ids = [book.accession_id for book in library.get_all_books()]
+        book_to_delete = library.get_all_books()[3]
+        library.delete_book(book_to_delete)
+        library.add_new_book(self.book)
+        self.assertIsNotNone(self.book.accession_id)
+        self.assertNotIn(self.book.accession_id, all_accession_ids)
+
     def test_delete_book(self):
         book = library.get_all_books()[3]
         library.delete_book(book)
