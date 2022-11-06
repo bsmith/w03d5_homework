@@ -13,6 +13,13 @@ class TestLibrary(unittest.TestCase):
         all_books = library.get_all_books()
         self.assertIsInstance(all_books, list)
 
+    def test_find_unused_accession_id(self):
+        all_accession_ids = [book.accession_id for book in library.get_all_books()]
+        book_to_delete = library.get_all_books()[3]
+        library.delete_book(book_to_delete)
+        new_accession_id = library.find_unused_accession_id()
+        self.assertNotIn(new_accession_id, all_accession_ids)
+
     def test_add_new_book(self):
         library.add_new_book(self.book)
         self.assertIn(self.book, library.get_all_books())

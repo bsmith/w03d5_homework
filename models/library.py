@@ -9,13 +9,17 @@ class Library():
     def __init__(self, name):
         self.name = name
         self.books = []
-    
+
+    def find_unused_accession_id(self):
+        if len(self.books) == 0:
+            new_accession_id = 100
+        else:
+            new_accession_id = 1 + max([book.accession_id for book in self.books])
+        return new_accession_id
+
     def add_new_book(self, new_book: Book):
         if new_book.accession_id is None:
-            if len(self.books) == 0:
-                new_accession_id = 100
-            else:
-                new_accession_id = 1 + max([book.accession_id for book in self.books])
+            new_accession_id = self.find_unused_accession_id()
             new_book.update_accession_id(new_accession_id)
             self.books.append(new_book)
 
