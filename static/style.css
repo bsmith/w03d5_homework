@@ -43,6 +43,21 @@ main {
 .bookslist {
     list-style: none;
     padding-left: 0;
+    /* outline: 1px solid green; */
+}
+
+.book {
+    /* outline: 1px solid red; */
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    align-items: center;
+}
+
+.book .details {
+    display: block;
+    padding-left: 3em;
+    text-indent: -3em;
+    order: 1;
 }
 
 /* .create * { outline: 1px solid goldenrod}
@@ -76,4 +91,53 @@ main {
 input, button, select, option {
     font-family: inherit;
     font-size: inherit;
+}
+
+@media (max-width: 525px) {
+    header > h1 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 900;
+    }
+
+    header > h2 {
+        font-size: 1.5rem;
+    }
+
+    .book {
+        /* outline: 1px solid red; */
+        display: grid;
+        grid-template-columns: 100%;
+        align-items: center;
+        gap: 0.5rem;
+        padding-bottom: 8px;
+        border-bottom: 4px solid lightgrey;
+    }
+
+    .book .details {
+        order: -1;
+    }
+
+    .book .buttons button {
+        width: 100%;
+    }
+
+    .create {
+        width: 100%;
+    }
+
+    .create > div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .create > div > * {
+        width: 100%;
+    }
+
+    .create label {
+        text-align: left;
+        width: 100%;
+    }
 }

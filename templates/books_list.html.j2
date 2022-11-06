@@ -7,15 +7,19 @@
     <ul class="bookslist">
     {% for book in books_list %}
         <li class="book">
-            <span class="title">
-                <a href="{{ url_for('books.books_single', accession_id=book.accession_id) }}">{{ book.title }}</a>
+            <span class="details">
+                <span class="title">
+                    <a href="{{ url_for('books.books_single', accession_id=book.accession_id) }}">{{ book.title }}</a>
+                </span>
+                by <span class="author">{{ book.author }}</span><br>
+                — <span class="genre">{{ book.genre }}</span>
+                {# {% if book.checked_out %}
+                <span class="checked-out">checked out</span>
+                {% endif %} #}
             </span>
-            by <span class="author">{{ book.author }}</span> —
-            <span class="genre">{{ book.genre }}</span>
-            {% if book.checked_out %}
-            <span class="checked-out">checked out</span>
-            {% endif %}
-            {{ macros.checkoutin_button(book, loop.index0, "inline") }}
+            <span class="buttons">
+                {{ macros.checkoutin_button(book, loop.index0, "inline") }}
+            </span>
         </li>
     {% endfor %}
     </ul>

@@ -48,8 +48,8 @@
 
 # CSS Extensions
 
-* Style everything with CSS
-* Mobile design
+* ✓ Style everything with CSS
+* ✓ Mobile design
 * ✓ Icons/emoji on all buttons
 
 # Design
@@ -71,13 +71,14 @@ Don't need class/object diagrams for this system.
     * Show books of a specific genre
     * Filter to books not checked out
 * Pagination?
-* Library should be an object!
+* ✓ Library should be an object!
 * ✓ Genre selection should be a drop-down list
 * Find out what a 'CSS Reset' would do/be useful for.  Removing annoying margins?
-* As you delete books, the book referred to by each index changes!
+* ✓ As you delete books, the book referred to by each index changes!
     * eg /books/1 — delete book 1 — then /books/1 refers to what was /books/2
     * stick a `database_id` attribute on books, `None` by default, and set it
       when added or deleted
+    * _Implemented_ as accession ids
 * When deleting books, ask 'Are you sure?'
 * Try taking some screenshots/video
 * Refresh README
