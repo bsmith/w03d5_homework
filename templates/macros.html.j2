@@ -1,5 +1,5 @@
 {% macro checkoutin_button(book, index, extraclass='') %}
-<form class="checkoutin {{extraclass}}" action="{{ url_for('books.books_checkoutin', index=index) }}"
+<form class="checkoutin {{extraclass}}" action="{{ url_for('books.books_checkoutin', accession_id=book.accession_id) }}"
         method="POST">
     {% if book.checked_out %}
     <input type="hidden" name="direction" value="in">
@@ -13,7 +13,7 @@
 </form>
 {% endmacro %}
 {% macro delete_button(book, index, extraclass='') %}
-<form class="delete {{extraclass}}" action="{{ url_for('books.books_delete', index=index) }}"
+<form class="delete {{extraclass}}" action="{{ url_for('books.books_delete', accession_id=book.accession_id) }}"
         method="POST">
     <button type="submit">&#x1F5D1;&#xFE0F; Delete Book</button>
 </form>

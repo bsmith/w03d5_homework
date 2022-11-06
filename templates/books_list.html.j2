@@ -8,7 +8,7 @@
     {% for book in books_list %}
         <li class="book">
             <span class="title">
-                <a href="{{ url_for('books.books_single', index=loop.index0) }}">{{ book.title }}</a>
+                <a href="{{ url_for('books.books_single', accession_id=book.accession_id) }}">{{ book.title }}</a>
             </span>
             by <span class="author">{{ book.author }}</span> —
             <span class="genre">{{ book.genre }}</span>
@@ -20,7 +20,7 @@
     {% endfor %}
     </ul>
 
-    <form class="create" action="{{ url_for('books.books_create', index=index) }}"
+    <form class="create" action="{{ url_for('books.books_create') }}"
             method="POST">
         <h3>Create book</h3>
         <div>
