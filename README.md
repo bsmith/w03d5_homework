@@ -62,6 +62,12 @@ Don't need class/object diagrams for this system.
 
 ![persona1.png](persona1.png)
 
+## Screenshots
+
+![screenshot-grid.png](screenshot-grid.png)
+
+![screenshot-mobile.png](screenshot-mobile.png)
+
 # More extensions?
 
 * Sort the books by title or author
