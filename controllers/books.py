@@ -6,9 +6,28 @@ from models.library import library
 # Blueprints! https://flask.palletsprojects.com/en/2.2.x/blueprints/
 books = Blueprint("books", __name__)
 
-@books.route('/books')
-def books_list():
-    return render_template("books_list.html.j2", title="All Books", books_list=library.get_all_books())
+# Flask automatically redirects /books to /books/ but not the other way around
+# https://flask.palletsprojects.com/en/2.2.x/quickstart/#unique-urls-redirection-behavior
+# Docs for defaults: https://flask.palletsprojects.com/en/2.2.x/api/#url-route-registrations
+@books.route('/books/', defaults={'sort_type': 'accession_id'})
+@books.route('/books/sorted/<sort_type>')
+def books_list(sort_type):
+    key_func = lambda x: x # identity function
+    match sort_type:
+        case 'accession_id':
+            key_func = lambda book: book.accession_id
+        case 'title':
+            key_func = lambda book: book.title
+        case 'author':
+            # so this returns a function with the right type, but it doesn't
+            # look it up through the MRO and so it would defeat polymorphism
+            # I don't think python has a built-in thing that does what they lambda does
+            # key_func = Book.get_author_sortkey
+            key_func = lambda book: book.get_author_sortkey()
+        case _:
+            raise ValueError("unknown sort type")
+    books_list = sorted(library.get_all_books(), key=key_func)
+    return render_template("books_list.html.j2", title="All Books", books_list=books_list)
 
 @books.route('/books/<int:accession_id>')
 def books_single(accession_id: int):
