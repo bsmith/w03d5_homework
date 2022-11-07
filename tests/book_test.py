@@ -1,8 +1,8 @@
-from unittest import TestCase
+import unittest
 
 from models.book import Book
 
-class TestBook(TestCase):
+class TestBook(unittest.TestCase):
     def setUp(self):
         self.book = Book("The Platform Edge", "Mike Ashley", "fiction")
 
@@ -34,10 +34,16 @@ class TestBook(TestCase):
     def test_update_accession_id(self):
         self.book.update_accession_id(123)
         self.assertEqual(123, self.book.get_accession_id())
+        # self.assertTrue(False)
     
     def test_remove_accession_id(self):
-        self.book.update_accession_id(123)
-        self.assertEqual(123, self.book.get_accession_id())
+        # self.book.update_accession_id(123)
+        # self.assertEqual(123, self.book.get_accession_id())
+        #### EXAMPLE OF HOW TO CHAIN TO ANOTHER TEST
+        try:
+            self.test_update_accession_id() # chain to another test
+        except AssertionError:
+            raise unittest.SkipTest("chained test failed")
         self.book.remove_accession_id()
         self.assertIsNone(self.book.get_accession_id())
 
