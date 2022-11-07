@@ -20,7 +20,7 @@
     {% endblock %}
     </header>
 {% block content %}
-<p>Go to <a href="/books">all books</a></p>
+<p>Go to <a href="{{ url_for('books.books_list') }}">all books</a></p>
 {% endblock %}
 </body>
 </html>
